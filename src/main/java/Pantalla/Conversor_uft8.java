@@ -11,8 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
-import Pantalla.Pantalla;
 
 /**
  *
@@ -27,25 +25,29 @@ public class Conversor_uft8 {
  
 
        
-      // FileWriter nuevoArchivo = new FileWriter ("C:\\Users\\usuario\\Desktop\\Prueba2.srt");
+
        String rutaNueva = recortarTitulo.buscarDireccion(direccion);
        FileWriter nuevoArchivo = new FileWriter (rutaNueva);
        File viejo = new File(direccion);
-      
- 
-       BufferedReader lector = new BufferedReader(new InputStreamReader(new FileInputStream(viejo), "ISO-8859-1" ));
-       String renglon;
-while ((renglon = lector.readLine()) != null)
-{
-    renglon = transformador.usar(renglon);
-        nuevoArchivo.write(renglon + "\n");
-}
+       if (viejo.exists()){
+            BufferedReader lector = new BufferedReader(new InputStreamReader(new FileInputStream(viejo), "ISO-8859-1" ));
+            String renglon;
+            while ((renglon = lector.readLine()) != null)
+                {
+                    renglon = transformador.usar(renglon);
+                    nuevoArchivo.write(renglon + "\n");
+                }
        
-
-      lector.close();
-       nuevoArchivo.close();
+            lector.close();
+            nuevoArchivo.close();
       
-return true;
+            return true;
+       } else
+       {
+           return false;
+       }
+ 
+      
     }
        
 }
