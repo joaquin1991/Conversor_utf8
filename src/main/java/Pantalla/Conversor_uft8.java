@@ -20,16 +20,11 @@ public class Conversor_uft8 {
 
     
     public static Boolean ejecutar(String direccion, transformarTodos transformador) throws FileNotFoundException, IOException {
-     
-     
- 
 
-       
-
-       String rutaNueva = recortarTitulo.buscarDireccion(direccion);
-       FileWriter nuevoArchivo = new FileWriter (rutaNueva);
        File viejo = new File(direccion);
        if (viejo.exists()){
+            String rutaNueva = recortarTitulo.buscarDireccion(direccion);
+            FileWriter nuevoArchivo = new FileWriter (rutaNueva);
             BufferedReader lector = new BufferedReader(new InputStreamReader(new FileInputStream(viejo), "ISO-8859-1" ));
             String renglon;
             while ((renglon = lector.readLine()) != null)
