@@ -9,10 +9,11 @@ package Pantalla;
  * @author usuario
  */
 public class Reemplazar extends javax.swing.JFrame {
-    public static int valorDevuelto;
-    public int verValor(){
-    return valorDevuelto;
-            }
+    private String direccion;
+    public void establecerDireccion(String p_direccion){
+        direccion = p_direccion;
+    }
+
     /**
      * Creates new form Reemplazar
      */
@@ -82,50 +83,26 @@ public class Reemplazar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cerrar(){
+     this.dispose();
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-  this.valorDevuelto = 1;
-        this.dispose();        // TODO add your handling code here:
+     reemplazador.cambiar(direccion);
+      this.cerrar();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.valorDevuelto = 0;
-        this.dispose();
-        // TODO add your handling code here:
+       this.cerrar(); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void ejecutar(){
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reemplazar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reemplazar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reemplazar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reemplazar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Reemplazar().setVisible(true);
-            }
-        });
+    public static void ejecutar(){
+               
+        java.awt.EventQueue.invokeLater(() -> {
+            new Reemplazar().setVisible(true);
+        }/* {
+        */);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -208,17 +208,20 @@ public class Pantalla extends javax.swing.JFrame {
          
          Pantalla.direccion = textito.getText();
         try {
-            Boolean enviar = Conversor_uft8.ejecutar(direccion, Pantalla.transformador);
+           Boolean enviar = Conversor_uft8.ejecutar(direccion, Pantalla.transformador);
+           
             if(enviar){
-                 Reemplazar reemplazar = new Reemplazar();
-                  reemplazar.ejecutar();
-                //  reemplazar.setVisible(true);
-                  while(reemplazar.isDisplayable()){}
-                  if (reemplazar.verValor() == 1){
-                      reemplazador.cambiar(Pantalla.direccion);
-                  }
+                Reemplazar reemplazar = new Reemplazar();
+                reemplazar.setVisible(true);
+                reemplazar.establecerDireccion(direccion);
                
-            }
+                   } else
+                       {
+                           Mensaje mensaje = new Mensaje();
+                           mensaje.nombrar("Archivo no encontrado");
+                           mensaje.setVisible(true);
+                           //mensaje.ejecutar("Archivo no encontrado");
+                       }
         } catch (IOException ex) {
             Logger.getLogger(Pantalla.class.getName()).log(Level.SEVERE, null, ex);
         }
