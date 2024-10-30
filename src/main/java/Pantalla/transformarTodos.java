@@ -38,11 +38,11 @@ public final class transformarTodos {
     
     public void cargarArchivo(){
         this.pares = Archivero.cargar();
-        if (this.pares.isEmpty()){
+        /*if (this.pares.isEmpty()){
            this.pares = pares_Defecto.conseguirPares();
            Archivero.guardar(this.pares);
            
-        }
+        }*/
        
     }
     
