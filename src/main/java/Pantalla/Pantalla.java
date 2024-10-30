@@ -316,7 +316,8 @@ public class Pantalla extends javax.swing.JFrame {
         /* Create and display the form */
          Pantalla.transformador = new transformarTodos();
       
-    
+
+       
         
         
         java.awt.EventQueue.invokeLater(new Runnable() {
