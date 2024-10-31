@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -20,8 +22,8 @@ import javax.swing.table.DefaultTableModel;
 public final class transformarTodos {
     public List<Par_De_Letras> pares;
     public String fraseGuardada;
- 
-    
+    public static String flecha = "-->";
+        
     public void guardarCambios(DefaultTableModel modelo){
         this.pares = new ArrayList<Par_De_Letras>();
         int cantidad = modelo.getRowCount();
@@ -62,6 +64,29 @@ public final class transformarTodos {
         return this.fraseGuardada;
         
     }
+    
+    public String alterar(String renglon, Integer segundos){
+    Integer posicion = renglon.indexOf(flecha);
+    if (posicion < 0)
+    {return renglon; }
+    else
+    {
+       try{ 
+        String horaDesde = this.sumarTiempo(renglon.substring(0, 8), segundos);
+        String horaHasta = this.sumarTiempo(renglon.substring(17, 25), segundos);
+        String renglonNuevo = horaDesde + renglon.substring(8, 17);
+        renglonNuevo = renglonNuevo + horaHasta + renglon.substring(25);
+        return renglonNuevo;} catch(Exception e){Enviador_Mensajes.imprimir(renglon); return renglon;}
+    }
+        
+    }
+    
+    public String sumarTiempo(String hora, Integer segundos){
+    String tiempo;
+    LocalTime tiempoOriginal =  (LocalTime.parse(hora)).plusSeconds(segundos);
+    tiempo = tiempoOriginal.toString();
+    return tiempo;
 
+    }
 
 }

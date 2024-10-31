@@ -35,6 +35,7 @@ public class Reemplazar extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Conversor UFT 8 Aviso");
 
         jLabel3.setText("¿Desea reemplazar al archivo original?");
 

@@ -32,6 +32,7 @@ public class Mensaje extends javax.swing.JFrame {
         label1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Conversor UFT 8 Mensaje");
 
         ok.setActionCommand("ok");
         ok.setLabel("OK");
