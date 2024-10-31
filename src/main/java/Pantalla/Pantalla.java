@@ -230,12 +230,14 @@ public class Pantalla extends javax.swing.JFrame {
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
          
          Pantalla.direccion = textito.getText();
+
          int segundosObtenidos = 0;
          String textoSegundos = this.segundos.getText();
          try {segundosObtenidos = Integer.parseInt(textoSegundos);
          
             try {
            Boolean enviar = Conversor_uft8.ejecutar(direccion, Pantalla.transformador, this.quiereCambiar.getState(), segundosObtenidos);
+
            
             if(enviar){
                 Reemplazar reemplazar = new Reemplazar();

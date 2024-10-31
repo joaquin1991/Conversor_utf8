@@ -19,7 +19,9 @@ import java.io.InputStreamReader;
 public class Conversor_uft8 {
 
     
+
     public static Boolean ejecutar(String direccion, transformarTodos transformador, Boolean traducir, Integer segundos) throws FileNotFoundException, IOException {
+
 
        File viejo = new File(direccion);
        if (viejo.exists()){
@@ -29,6 +31,7 @@ public class Conversor_uft8 {
             String renglon;
             while ((renglon = lector.readLine()) != null)
                 {
+
                     if (traducir) {
                     renglon = transformador.usar(renglon);
                     }
@@ -36,6 +39,8 @@ public class Conversor_uft8 {
                     renglon = transformador.alterar(renglon, segundos);
                     }
                     
+
+
                     nuevoArchivo.write(renglon + "\n");
                 }
        
